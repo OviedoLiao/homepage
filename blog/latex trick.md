@@ -63,11 +63,13 @@ $$\blacksquare$$
 $$
 \sum_{\substack{m,m' \\ m\neq m' }}O_{mm'}
 $$
+
 2. 
 $$
 \sum_{m}\sum_{m'\neq m}O_{mm'}
 $$
 ==我一般用第二种== 
+
 3. 
 $$
 {\sum_{m,m'}}'O_{mm'}\\
@@ -485,6 +487,7 @@ f(x)=
 \end{aligned}
 \right.
 ```
+
 $$
 f(x)=
 \left\{
@@ -494,6 +497,7 @@ f(x)=
 \end{aligned}
 \right.
 $$
+
 基本方法就是\left \right中间夹一组aligned, ==注意\right的右边紧跟着一个点 "." 别漏了==.
 
 ***
@@ -630,7 +634,7 @@ Celeio说, **\dots是"系统自动适应"**, 他更喜欢全部都用\cdots, 并
 \iiiint|$\iiiint$|\oint|$\oint$|\oiint|$\oiint$
 \lim|$\lim$|\infty|$\infty$||
 \partial|$\partial$|\nabla|$\nabla$||
-'|$'$|\prime|$\prime$|^{\prime}|$^{\prime}$
+'||\prime|$\prime$|^{\prime}|$^{\prime}$
 \Im|$\Im$|\aleph|$\aleph$|\wp|$\wp$
 \Re|$\Re$|\inf|$\inf$|\sup|$\sup$
 ```
