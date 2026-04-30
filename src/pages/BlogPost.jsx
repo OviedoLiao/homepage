@@ -63,9 +63,10 @@ export default function BlogPost() {
   const [htmlContent, setHtmlContent] = useState('')
   const [loading, setLoading] = useState(true)
   const { css: themeCss } = useTheme()
+  const isPdf = post?.file?.toLowerCase().endsWith('.pdf')
 
   useEffect(() => {
-    if (!post?.file) return
+    if (!post?.file || isPdf) return
     setLoading(true)
     fetch(`${import.meta.env.BASE_URL}blog/${post.file}`)
       .then((res) => {
@@ -83,10 +84,10 @@ export default function BlogPost() {
         setHtmlContent('<p>Failed to load article.</p>')
         setLoading(false)
       })
-  }, [post])
+  }, [post, isPdf])
 
   useEffect(() => {
-    if (contentRef.current) {
+    if (contentRef.current && !isPdf) {
       contentRef.current.querySelectorAll('a').forEach((a) => {
         a.target = '_blank'
         a.rel = 'noopener noreferrer'
@@ -95,7 +96,7 @@ export default function BlogPost() {
         window.MathJax.typesetPromise([contentRef.current])
       }
     }
-  }, [htmlContent])
+  }, [htmlContent, isPdf])
 
   if (!post) {
     return (
@@ -122,7 +123,13 @@ export default function BlogPost() {
             ))}
           </div>
         </div>
-        {loading ? (
+        {isPdf ? (
+          <iframe
+            src={`${import.meta.env.BASE_URL}blog/${post.file}`}
+            className="post-pdf-viewer"
+            title={post.title}
+          />
+        ) : loading ? (
           <p className="post-loading">Loading...</p>
         ) : (
           <div

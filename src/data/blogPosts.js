@@ -31,4 +31,12 @@ export const blogPosts = [
     tags: ['xxx', 'xxxxt'],
     file: 'latex trick.md',
   },
+  {
+    id: 5,
+    title: '[PDF] latex trick',
+    date: '2026-04-28',
+    summary: '未完全通过latex trick测试',
+    tags: ['xxx', 'xxxxt'],
+    file: 'latex trick.pdf',
+  },
 ]

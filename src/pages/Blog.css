@@ -53,6 +53,10 @@
   line-height: 1.8;
 }
 
+.blog-card-summary .cjk-text {
+  font-size: 12px;
+}
+
 .blog-card-tags {
   display: flex;
   gap: 8px;
