@@ -1,0 +1,19 @@
+.app-layout {
+  min-height: 100vh;
+}
+
+.app-body {
+  display: flex;
+  padding-top: var(--navbar-height);
+  min-height: calc(100vh - var(--navbar-height));
+}
+
+.app-content {
+  flex: 1;
+  padding: 24px 32px;
+  min-width: 0;
+}
+
+.app-content.full-width {
+  padding: 0;
+}

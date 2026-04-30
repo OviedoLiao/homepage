@@ -1,0 +1,32 @@
+.virtual-cursor {
+  position: fixed;
+  width: 62px;
+  height: 62px;
+  pointer-events: none;
+  z-index: 99999;
+  image-rendering: pixelated;
+}
+
+.cursor-selector {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 99998;
+  display: flex;
+  gap: 6px;
+}
+
+.cursor-selector select {
+  background: var(--bg-card);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 6px 10px;
+  font-size: 10px;
+  color: var(--text);
+  outline: none;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.cursor-selector select:focus {
+  border-color: var(--primary-dark);
+}

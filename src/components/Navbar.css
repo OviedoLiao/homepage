@@ -1,0 +1,100 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--navbar-height);
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+  border-bottom: 3px solid var(--primary-dark);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  font-size: 16px;
+  color: var(--text) !important;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 8px; /* 稍微加大间距，更美观 */
+}
+
+/* --- 核心修改部分 --- */
+
+.nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  min-width: 80px; /* 锁定宽度，防止横向抖动 */
+  height: 36px;    /* 锁定高度，确保垂直对齐 */
+  
+  padding: 0 12px;
+  border-radius: 4px;
+  transition: background 0.2s;
+  overflow: hidden; /* 隐藏切换时的溢出 */
+}
+
+.nav-zh, .nav-en {
+  position: absolute; /* 让两者重叠在容器中心 */
+  width: 100%;
+  text-align: center;
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none; /* 防止干扰点击 */
+}
+
+.nav-zh {
+  display: block;
+  font-size: 20px;      /* 悬停前：中文较小 */
+  font-family: var(--serif-font); 
+  color: #58124fc5 !important;     /* 直接强制设为纯黑 */
+  font-weight: 600;              /* 增加字重，让笔画变粗 */
+  opacity: 1;
+  text-shadow: none;             /* 去掉阴影，防止模糊感 */
+}
+
+.nav-en {
+  display: block;      /* 不再使用 none，方便过渡 */
+  font-size: 12px;      /* 悬停后：英文保持 12px */
+  font-family: var(--pixel-font);
+  text-transform: uppercase;
+  opacity: 0;          /* 默认透明 */
+  transform: translateY(5px); /* 初始位移，增加一点向上浮现的动效 */
+}
+
+/* --- 悬停交互逻辑 --- */
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.nav-link:hover .nav-zh {
+  opacity: 0;
+  transform: translateY(-5px); /* 中文向上消失 */
+}
+
+.nav-link:hover .nav-en {
+  opacity: 1;
+  transform: translateY(0);    /* 英文回到中心点 */
+}
+
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.6);
+  /* Active 状态建议保持与 Hover 逻辑一致，或者固定显示某一语种 */
+}

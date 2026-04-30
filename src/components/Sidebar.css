@@ -1,0 +1,84 @@
+.sidebar {
+  /* 1. 增加整体侧边栏宽度，原为 240px 建议改为 280px-300px */
+  width: 280px; 
+  min-width: 280px;
+  padding: 20px 16px;
+  position: sticky;
+  top: calc(var(--navbar-height) + 16px);
+  height: fit-content;
+}
+
+.sidebar-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  /* 2. 增加内边距，让卡片看起来更“膨胀”更有空间感 */
+  padding: 32px 20px; 
+  text-align: center;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.card-avatar {
+  /* 3. 头像从 80px 放大到 150px */
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 20px; /* 增加下方间距 */
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--primary); /* 边框稍微加粗 */
+  background: white;
+}
+
+.card-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-name {
+  /* 4. 名字字号增大，原 10px 建议 14px */
+  font-size: 14px; 
+  margin-bottom: 12px;
+  color: var(--text);
+  font-weight: bold;
+}
+
+.card-bio {
+  /* 5. 简介字号增大，原 8px 建议 16px */
+  font-size: 14px;
+  font-family: var(--serif-font);
+  color: var(--text-light);
+  margin-bottom: 24px; /* 增加到社交链接的距离 */
+  line-height: 1.8;
+  white-space: pre-wrap; /* 确保换行符生效 */
+}
+
+.card-bio p {
+  margin: 0;
+}
+
+.card-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px; /* 增加图标之间的间距 */
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* 6. 图标圆圈从 32px 增大到 40px */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary-lighter);
+  color: var(--primary-dark) !important;
+  font-size: 18px; /* 图标文字也相应变大 */
+  transition: all 0.2s;
+}
+
+.card-link:hover {
+  background: var(--primary);
+  color: #fff !important;
+  transform: scale(1.1); /* 悬停时稍微放大，增加互动感 */
+}
