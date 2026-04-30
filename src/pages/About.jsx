@@ -15,9 +15,9 @@ export default function About() {
         <div className="about-section">
           <h3>Tech Stack</h3>
           <ul>
-            <li>React 18 + Vite 6</li>
-            <li>React Router v6 (HashRouter)</li>
-            <li>markdown-it + KaTeX</li>
+            <li>React 19 + Vite 8</li>
+            <li>React Router v7 (HashRouter)</li>
+            <li>markdown-it + MathJax</li>
             <li>Custom virtual cursor system</li>
           </ul>
         </div>

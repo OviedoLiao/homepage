@@ -8,7 +8,7 @@
 
 - **React 19** + **Vite 8**
 - **React Router v7**（HashRouter，适配 GitHub Pages 静态部署）
-- **markdown-it** + **KaTeX**（Markdown 渲染与数学公式）
+- **markdown-it** + **MathJax**（Markdown 渲染与数学公式）
 - **Press Start 2P**（像素风格字体）
 - **Noto Serif SC**（博客文章正文衬线字体）
 
