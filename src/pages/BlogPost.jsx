@@ -67,7 +67,7 @@ export default function BlogPost() {
   useEffect(() => {
     if (!post?.file) return
     setLoading(true)
-    fetch(`/blog/${post.file}`)
+    fetch(`${import.meta.env.BASE_URL}blog/${post.file}`)
       .then((res) => {
         if (!res.ok) throw new Error('Failed to load')
         return res.text()

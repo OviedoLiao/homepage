@@ -31,11 +31,11 @@ export const CHARACTER_NAMES = {
 
 export function getCursorSrc(character, cursorType) {
   const mapped = CURSOR_TYPES[cursorType] || CURSOR_TYPES.default
-  return `/cursors/${character}/gifs/${mapped}.gif`
+  return `${import.meta.env.BASE_URL}cursors/${character}/gifs/${mapped}.gif`
 }
 
 export function getDefaultCursorSrc(character) {
-  return `/cursors/${character}/gifs/pointer.gif`
+  return `${import.meta.env.BASE_URL}cursors/${character}/gifs/pointer.gif`
 }
 
 const STATIC_CURSOR_MAP = {
@@ -60,5 +60,5 @@ const STATIC_CURSOR_MAP = {
 
 export function getStaticCursorSrc(character, cursorType) {
   const mapped = STATIC_CURSOR_MAP[cursorType] || STATIC_CURSOR_MAP.default
-  return `/cursors/${character}/static/${mapped}.cur`
+  return `${import.meta.env.BASE_URL}cursors/${character}/static/${mapped}.cur`
 }

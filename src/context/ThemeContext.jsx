@@ -17,7 +17,7 @@ export function ThemeProvider({ children }) {
   const [css, setCss] = useState('')
 
   useEffect(() => {
-    fetch('/md_themes/github.css')
+    fetch(`${import.meta.env.BASE_URL}md_themes/github.css`)
       .then((res) => res.text())
       .then((raw) => {
         let adapted = adaptCss(raw)
