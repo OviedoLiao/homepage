@@ -112,3 +112,27 @@
   font-size: 7px;
   color: var(--text-muted);
 }
+
+@media (max-width: 768px) {
+  .home {
+    padding: 24px 16px;
+  }
+
+  .home-title {
+    font-size: 16px;
+  }
+
+  .home-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+    gap: 12px;
+  }
+
+  .home-card {
+    padding: 16px 12px;
+  }
+
+  .home-card-zh {
+    font-size: 16px;
+  }
+}

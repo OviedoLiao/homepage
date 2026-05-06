@@ -43,3 +43,9 @@
   padding: 2px 8px;
   border-radius: 4px;
 }
+
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import './Navbar.css'
 
@@ -13,19 +14,29 @@ const NAV_ITEMS = [
 ]
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
     <nav className="navbar">
       <div className="navbar-inner">
         <NavLink to="/" className="navbar-logo">
           <span className="logo-zh">OviedoLiao</span>
         </NavLink>
-        <ul className="navbar-links">
+        <button
+          className={`hamburger ${menuOpen ? 'open' : ''}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Menu"
+        >
+          <span /><span /><span />
+        </button>
+        <ul className={`navbar-links ${menuOpen ? 'menu-open' : ''}`}>
           {NAV_ITEMS.map((item) => (
             <li key={item.path}>
               <NavLink
                 to={item.path}
                 className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
                 end={item.path === '/'}
+                onClick={() => setMenuOpen(false)}
               >
                 <span className="nav-zh">{item.label}</span>
                 <span className="nav-en">{item.en}</span>

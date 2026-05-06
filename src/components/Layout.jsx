@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
@@ -9,6 +10,11 @@ import './Layout.css'
 export default function Layout() {
   const location = useLocation()
   const isHome = location.pathname === '/'
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+
+  useEffect(() => {
+    setSidebarOpen(false)
+  }, [location])
 
   return (
     <CursorProvider>
@@ -16,7 +22,21 @@ export default function Layout() {
       <div className="app-layout">
         <Navbar />
         <div className="app-body">
-          {!isHome && <Sidebar />}
+          {!isHome && (
+            <>
+              <button
+                className="sidebar-toggle"
+                onClick={() => setSidebarOpen(true)}
+                aria-label="Open sidebar"
+              >
+                ☰
+              </button>
+              {sidebarOpen && (
+                <div className="sidebar-overlay" onClick={() => setSidebarOpen(false)} />
+              )}
+              <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+            </>
+          )}
           <main className={`app-content ${isHome ? 'full-width' : ''}`}>
             <Outlet />
           </main>

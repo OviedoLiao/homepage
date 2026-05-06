@@ -32,3 +32,10 @@
   font-size: 8px;
   color: var(--text-light);
 }
+
+@media (max-width: 768px) {
+  .friends-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}

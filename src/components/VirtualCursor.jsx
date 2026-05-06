@@ -11,6 +11,15 @@ export default function VirtualCursor() {
   const [cursorType, setCursorType] = useState('default')
   const [imgError, setImgError] = useState(false)
   const [nearScrollbar, setNearScrollbar] = useState(false)
+  const [isTouch, setIsTouch] = useState(false)
+
+  useEffect(() => {
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+      setIsTouch(true)
+    }
+  }, [])
+
+  if (isTouch) return null
 
   const getCursorType = useCallback((el) => {
     const dataCursor = el.getAttribute('data-cursor')

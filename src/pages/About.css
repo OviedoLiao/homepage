@@ -44,3 +44,9 @@
   color: var(--primary);
   font-weight: bold;
 }
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 16px;
+  }
+}

@@ -1,9 +1,10 @@
 import { userInfo } from '../data/userInfo'
 import './Sidebar.css'
 
-export default function Sidebar() {
+export default function Sidebar({ open, onClose }) {
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${open ? 'sidebar-open' : ''}`}>
+      <button className="sidebar-close" onClick={onClose} aria-label="Close sidebar">×</button>
       <div className="sidebar-card">
         <div className="card-avatar">
           <img src={userInfo.avatar} alt="avatar" />

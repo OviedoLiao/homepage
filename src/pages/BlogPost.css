@@ -223,3 +223,18 @@
   display: block;
   text-align: center;
 }
+
+@media (max-width: 768px) {
+  .post-article {
+    padding: 16px;
+  }
+
+  .post-title {
+    font-size: 14px;
+  }
+
+  .post-meta {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}

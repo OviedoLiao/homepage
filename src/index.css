@@ -86,3 +86,15 @@ h1, h2, h3, h4, h5, h6 {
   background: #ff8ca5;
 }
 
+@media (max-width: 768px) {
+  body {
+    font-size: 13px;
+  }
+}
+
+@media (pointer: coarse) {
+  html, body {
+    cursor: auto !important;
+  }
+}
+
