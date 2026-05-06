@@ -29,21 +29,20 @@ export default function Navbar() {
         >
           <span /><span /><span />
         </button>
-        <ul className={`navbar-links ${menuOpen ? 'menu-open' : ''}`}>
+        <div className={`navbar-links ${menuOpen ? 'menu-open' : ''}`}>
           {NAV_ITEMS.map((item) => (
-            <li key={item.path}>
-              <NavLink
-                to={item.path}
-                className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
-                end={item.path === '/'}
-                onClick={() => setMenuOpen(false)}
-              >
-                <span className="nav-zh">{item.label}</span>
-                <span className="nav-en">{item.en}</span>
-              </NavLink>
-            </li>
+            <NavLink
+              key={item.path}
+              to={item.path}
+              className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+              end={item.path === '/'}
+              onClick={() => setMenuOpen(false)}
+            >
+              <span className="nav-zh">{item.label}</span>
+              <span className="nav-en">{item.en}</span>
+            </NavLink>
           ))}
-        </ul>
+        </div>
       </div>
     </nav>
   )

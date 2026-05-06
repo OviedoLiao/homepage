@@ -14,7 +14,7 @@ export default function Layout() {
 
   useEffect(() => {
     setSidebarOpen(false)
-  }, [location])
+  }, [location.pathname])
 
   return (
     <CursorProvider>

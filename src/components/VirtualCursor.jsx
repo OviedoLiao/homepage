@@ -19,13 +19,10 @@ export default function VirtualCursor() {
     }
   }, [])
 
-  if (isTouch) return null
-
   const getCursorType = useCallback((el) => {
     const dataCursor = el.getAttribute('data-cursor')
     if (dataCursor) return dataCursor
 
-    // Walk up to find the nearest interactive ancestor
     let node = el
     while (node && node !== document.documentElement) {
       const tag = node.tagName
@@ -41,7 +38,6 @@ export default function VirtualCursor() {
       node = node.parentElement
     }
 
-    // Read computed cursor (works for static mode; gif mode always returns 'none')
     const cssCursor = window.getComputedStyle(el).cursor
     if (cssCursor && cssCursor !== 'none' && cssCursor !== 'auto' && cssCursor !== 'default') {
       return cssCursor
@@ -72,11 +68,13 @@ export default function VirtualCursor() {
   }, [cursorMode, getCursorType, applyStaticCursor])
 
   useEffect(() => {
+    if (isTouch) return
     document.addEventListener('mousemove', handleMouseMove)
     return () => document.removeEventListener('mousemove', handleMouseMove)
-  }, [handleMouseMove])
+  }, [handleMouseMove, isTouch])
 
   useEffect(() => {
+    if (isTouch) return
     const html = document.documentElement
     if (cursorMode === 'static') {
       html.style.setProperty('--custom-cursor', `url("${getStaticCursorSrc(character, 'default')}"), auto`)
@@ -84,9 +82,10 @@ export default function VirtualCursor() {
       html.style.removeProperty('--custom-cursor')
     }
     return () => html.style.removeProperty('--custom-cursor')
-  }, [cursorMode, character])
+  }, [cursorMode, character, isTouch])
 
   useEffect(() => {
+    if (isTouch) return
     const html = document.documentElement
     if (nearScrollbar) {
       html.classList.add('near-scrollbar')
@@ -97,7 +96,9 @@ export default function VirtualCursor() {
         applyStaticCursor(cursorType)
       }
     }
-  }, [nearScrollbar, cursorMode, cursorType, applyStaticCursor])
+  }, [nearScrollbar, cursorMode, cursorType, applyStaticCursor, isTouch])
+
+  if (isTouch) return null
 
   const isGif = cursorMode === 'gif'
 

@@ -29,9 +29,8 @@
 }
 
 .navbar-links {
-  list-style: none;
   display: flex;
-  gap: 8px; /* 稍微加大间距，更美观 */
+  gap: 8px;
 }
 
 /* --- 核心修改部分 --- */
