@@ -46,4 +46,18 @@ Source: `F:\个人网站\{character}-*\Gifs\*.gif` and `Static\*.cur` copied to 
 
 ## Deployment
 
-Target: `https://github.com/OviedoLiao/` → GitHub Pages. `vite.config.js` sets `base: '/'` (repo name is the `*.github.io` root).
+Target: `https://github.com/OviedoLiao/` → GitHub Pages. `vite.config.js` sets `base: '/homepage/'`.
+
+### Vite Base URL 注意事项
+
+本项目 `base` 配置为 `/homepage/`，这意味着：
+- `public/` 下的文件实际通过 `/homepage/` 路径访问
+- **JSX 中引用 public 资源时**，必须使用 `import.meta.env.BASE_URL` 拼接路径，不能直接写绝对路径：
+  ```jsx
+  // ✗ 错误 — 请求 /qiong_4.png，404
+  <img src="/qiong_4.png" />
+
+  // ✓ 正确 — 请求 /homepage/qiong_4.png
+  <img src={`${import.meta.env.BASE_URL}qiong_4.png`} />
+  ```
+- **CSS 中的 `url()` 不受影响**，Vite 会自动处理，可以直接写 `/xxx.png`

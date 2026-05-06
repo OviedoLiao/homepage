@@ -21,6 +21,14 @@ export default function Layout() {
             <Outlet />
           </main>
         </div>
+        {!isHome && (
+          <img
+            className="corner-decor"
+            src={`${import.meta.env.BASE_URL}qiong_4.png`}
+            alt=""
+            draggable={false}
+          />
+        )}
         <VirtualCursor />
       </div>
       </ThemeProvider>

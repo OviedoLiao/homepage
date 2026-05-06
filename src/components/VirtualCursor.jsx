@@ -96,7 +96,7 @@ export default function VirtualCursor() {
     ? getDefaultCursorSrc(character)
     : getCursorSrc(character, cursorType)
 
-  const CURSOR_SIZE = 62
+  const CURSOR_SIZE = 50
   const offsetX = -CURSOR_SIZE / 2
   const offsetY = -CURSOR_SIZE / 2.5
 

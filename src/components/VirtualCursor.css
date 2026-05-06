@@ -1,7 +1,7 @@
 .virtual-cursor {
   position: fixed;
-  width: 62px;
-  height: 62px;
+  width: 50px;
+  height: 50px;
   pointer-events: none;
   z-index: 99999;
   image-rendering: pixelated;

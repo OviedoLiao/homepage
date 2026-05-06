@@ -17,3 +17,14 @@
 .app-content.full-width {
   padding: 0;
 }
+
+.corner-decor {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 750px;
+  opacity: 0.75;
+  pointer-events: none;
+  z-index: -1;
+  image-rendering: auto;
+}
